@@ -217,6 +217,7 @@ footer {
         height: 300px;
         width: 85%;
         border-radius: 5px;
+        object-fit: fill;
     }
     
 
@@ -251,5 +252,10 @@ footer {
 
     .description-container {
         width: 75%;
+    }
+
+
+    .project-box {
+        width: 90%;
     }
 }
