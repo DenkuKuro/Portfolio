@@ -213,6 +213,13 @@ footer {
         height: 75px;
     }
 
+    .project-img {
+        height: 300px;
+        width: 85%;
+        border-radius: 5px;
+    }
+    
+
 }
 
 
@@ -238,7 +245,7 @@ footer {
     }
 
     .tech-vec {
-        top: 90%;
+        top: 92%;
         left: 15%;
     }
 
