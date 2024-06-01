@@ -1,0 +1,248 @@
+
+
+body {
+    color: #EEEEEE;
+    background-color: #151515;
+    font-family: "Khand", sans-serif;
+
+}
+
+/**
+
+#hero {
+    background-image: url("./assets/red-space-nebula.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #A91D3A;
+}
+**/
+
+/** HERO SECTION **/
+
+#hero, #about-me {
+    display: flex;
+    justify-content: center;
+}
+
+
+.hero-gradient {
+    background-image: linear-gradient(to bottom right, #151515 55%, #A91D3A);
+    background-image: linear-gradient(#151515 50%);
+}
+
+
+.hero, .about-me {
+    height: 100vh;
+    width: 80%;
+    /** border: 5px solid white;
+    **/
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    gap: 20px;
+}
+
+.hero h1, .hero h2, .hero-name, .hero-img {
+    margin: 0;
+    padding: 0;
+}
+
+.hero h1 {
+    font-size: 8rem;
+}
+
+.hero h2 {
+    font-size: 2rem;
+    color: #A91D3A;
+}
+
+.astray-head {
+    filter: drop-shadow(0 20px 4px black);
+}
+
+.tech-vec {
+    position: absolute;
+    top: 85%;
+    left: 72%;
+}
+
+/** ABOUT ME SECTION **/
+.about-me {
+    width: 65%;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.about-me h1 {
+    font-size: 2rem;
+}
+
+.about-me p {
+    font-size: 1.5rem;
+}
+
+.self-picture {
+    border-radius: 20px;
+}
+
+
+
+
+/**
+.about-me-gradient {
+    background-image: linear-gradient(to left, #151515 55%, #A91D3A);
+}
+**/
+
+/** PROJECTS SECTION **/
+
+.projects-title, .contact {
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 0;
+}
+
+.projects-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.projects-container {
+    display: flex;
+    width: 90%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10%;
+}
+
+.project-box {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+
+.project-img {
+    height: 300px;
+    width: 450px;
+    border-radius: 5px;
+}
+
+
+/** CONTACT ME SECTION **/      
+.contact-container {
+    display: flex;
+    justify-content: center;
+}
+
+.contact-me  {
+    text-align: center;
+}
+
+.email {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+}
+
+@media (max-width: 1350px) {
+    .tech-vec {
+        left: 68%;
+    }
+}
+
+
+@media (max-width: 1200px) {
+    .tech-vec {
+        left: 64%;
+    }
+
+    .about-me p {
+        font-size: 1.25rem;
+    }
+
+    .self-picture {
+        height: 275px;
+    }
+}
+
+
+@media (max-width: 1050px) {
+
+    .hero, .about-me { 
+        width: 80%;
+        /** border: 5px solid white;
+        **/ 
+        justify-content: center;
+    }
+
+
+    .hero h1 {
+        font-size: 5rem;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .astray-head {
+        height: 275px;
+    }
+
+    .about-me h1 {
+        font-size: 1.75rem;
+    }
+    
+    .about-me p {
+        font-size: 1rem;
+    }
+    
+    .self-picture {
+        height: 225PX;
+    }
+
+    .tech-vec {
+        left: 70%;
+    }
+    
+    .vec-img {
+        height: 75px;
+    }
+
+}
+
+
+@media (max-width: 950px) {
+    .tech-vec {
+        left: 61%;
+    }
+}
+
+
+@media (max-width: 750px) {
+    .hero, .about-me { 
+        width: 80%;
+        /** border: 5px solid white;
+        **/ 
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero-name {
+        order: 1;
+    }
+
+    .tech-vec {
+        top: 90%;
+        left: 15%;
+    }
+
+    .description-container {
+        width: 75%;
+    }
+}
