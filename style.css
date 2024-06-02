@@ -259,3 +259,17 @@ footer {
         width: 90%;
     }
 }
+
+@media (max-width: 700px) {
+    .hero h1 {
+        font-size: 4.5rem;
+    }
+    
+    .hero h2 {
+        font-size: 2rem;
+    }
+    
+    .astray-head {
+        height: 225px;
+    }
+}
