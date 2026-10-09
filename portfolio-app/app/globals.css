@@ -1,26 +1,110 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --color-ink: #0c0a08;
+  --color-panel: rgb(12 10 8 / 0.64);
+  --color-gold-100: #f6e7c0;
+  --color-gold-200: #f3e2b5;
+  --color-gold-300: #e8cf94;
+  --color-gold-400: #d8b56d;
+  --color-gold-500: #b8934f;
+  --color-gold-600: #9a7638;
+  --color-gold-700: #6f5326;
+  --color-parchment: #efe6d2;
+  --color-parchment-200: #e4d9c0;
+  --color-muted: #d3c39f;
+  --color-dim: #bfae86;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-display: var(--font-cinzel), serif;
+  --font-body: var(--font-cormorant), Georgia, serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --shadow-glow: 0 0 22px rgb(214 170 90 / 0.35);
+  --shadow-panel: 0 24px 70px rgb(0 0 0 / 0.45);
+
+  --animate-rise: rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-drift: drift 150s linear infinite;
+  --animate-drift-slow: drift 180s linear infinite reverse;
+  --animate-breathe: breathe 40s ease-in-out infinite alternate;
+  --animate-ember: ember var(--ember-duration, 14s) linear infinite;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes drift {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes breathe {
+    from {
+      transform: scale(1.05);
+    }
+    to {
+      transform: scale(1.08);
+    }
+  }
+  @keyframes ember {
+    0% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+    15% {
+      opacity: var(--ember-opacity, 0.7);
+    }
+    85% {
+      opacity: var(--ember-opacity, 0.7);
+    }
+    100% {
+      transform: translate(var(--ember-sway, 30px), -70vh);
+      opacity: 0;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@utility text-glow {
+  text-shadow: 0 0 26px rgb(255 205 120 / 0.5);
+}
+@utility bg-gold-active {
+  background-image: linear-gradient(180deg, var(--color-gold-600), var(--color-gold-700));
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    background-color: var(--color-ink);
+  }
+  /* Own stacking context: the -z-10 backdrop paints above any body background, never behind it */
+  body {
+    isolation: isolate;
+    color: var(--color-parchment);
+    font-family: var(--font-body);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-gold-300);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background-color: rgb(216 181 109 / 0.4);
+    color: var(--color-gold-100);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }

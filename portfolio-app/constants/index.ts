@@ -1,4 +1,4 @@
-import { blog, SpikeConnect, insta, github, linkedin, StressBurnout,
+import { blog, SpikeConnect,
     python,
     javascript,
     cpp,
@@ -10,97 +10,164 @@ import { blog, SpikeConnect, insta, github, linkedin, StressBurnout,
     css,
     jquery,
     tailwind,
-    express,  
+    express,
     easyChart,
     docker,
  } from "../public";
+import type { ContactLink, Experience, Profile, Project, Section, SkillSchool } from "./types";
 
+export type * from "./types";
 
-export const sections = [
+// Single source of the menu order: title menu, nav tabs, chapter numbers and ←/→ cycling all read from this.
+export const sections: Section[] = [
     {
         id: "about-me",
-        title: "About Me",
+        title: "About",
+        heading: "About",
+        description: "Who I am, where I come from and what I am working towards.",
     },
     {
         id: "skills",
-        title: "Skills"
+        title: "Skills",
+        heading: "Skills",
+        description: "The languages, frameworks and tools I work with.",
     },
     {
         id: "projects",
         title: "Projects",
+        heading: "Projects",
+        description: "Things I have built, from full-stack web apps to systems programming.",
     },
     {
         id: "experience",
-        title: "Experience"
+        title: "Experience",
+        heading: "Experience",
+        description: "Where I have worked and what I shipped there.",
     },
     {
         id: "contact",
         title: "Contact",
+        heading: "Contact",
+        description: "Send me a message or find me on LinkedIn and GitHub.",
     },
 ];
 
+export const profile: Profile = {
+    name: "Javier Deng Xu",
+    firstName: "Javier",
+    lastName: "Deng Xu",
+    welcome: "Welcome to my journey.",
+    copyright: "© 2026 Javier",
+    portraitAlt: "Portrait of Javier Deng Xu",
+    quote: "“[A line you live by goes here.]”",
+    status: [
+        { label: "Class", value: "Software Engineer" },
+        { label: "Origin", value: "Panama City - Panama" },
+        { label: "Education", value: "Simon Fraser University - Computer Science" },
+        { label: "Current Quest", value: "Software Engineer Intern at WSP" },
+    ],
+    lore: [
+        "[Your bio goes here. Two or three sentences on what drives you, what you like building and what you are looking for next.]",
+    ],
+    resume: "/resume.pdf",
+};
 
-export const links = [
+export const contactLinks: ContactLink[] = [
     {
-        title: "Contact Links",
-        links: [
-            {
-                name: "Github",
-                link: "https://github.com/DenkuKuro",
-                icon: github
-            },
-            {
-                name: "Linkedn",
-                link: "linkedin.com/in/javier-deng-65b000284",
-                icon: insta
-            },
-            {
-                name: "Instagram",
-                link: "https://www.instagram.com/denkujdx/",
-                icon: linkedin
-            },
-            {
-                name: "Email",
-                link: "javier.deng17@gmail.com",
-            },
-        ],
+        kind: "email",
+        label: "Email",
+        value: "javier.deng17@gmail.com",
+        href: "mailto:javier.deng17@gmail.com",
     },
     {
-        title: "Section links?",
-        links: [],
-    }
+        kind: "linkedin",
+        label: "LinkedIn",
+        value: "in/javier-deng-65b000284",
+        href: "https://www.linkedin.com/in/javier-deng-65b000284",
+    },
+    {
+        kind: "github",
+        label: "GitHub",
+        value: "DenkuKuro",
+        href: "https://github.com/DenkuKuro",
+    },
+    {
+        kind: "location",
+        label: "Location",
+        value: "Vancouver, BC",
+    },
 ];
 
-export const projects = [
+export const contactCopy = {
+    label: "Summon Me",
+    availability: "Open to internships and new-grad roles.",
+    replyNote: "I usually reply within two days.",
+    sentTitle: "Message Sent",
+    sentBody: "Your sign has been left. Safe travels.",
+};
+
+export const projects: Project[] = [
     {
-        title: "Blog Post",
-        link: "https://github.com/DenkuKuro/Blog-Post",
+        slug: "sfu-course-compass",
+        short: "Course Compass",
+        title: "SFU Course Compass",
+        type: "Full-stack web app",
+        status: "Completed",
+        description: "[Short description of SFU Course Compass.]",
+        link: "https://github.com/DenkuKuro/SFU-Course-Compass",
         image: blog,
-        tech: "HTML/CSS, Javascript, Bootstrap, Node.js, Express.js, JQuery, Axios, REST API",
+        tech: ["React", "Spring Boot", "AWS EC2", "AWS RDS (PostgreSQL)", "Docker"],
     },
     {
+        slug: "ganpi",
+        short: "GANPI",
         title: "GANPI",
-        link: "",
-        image: "",
-        tech: ""
+        type: "Systems programming",
+        status: "Completed",
+        description: "[Short description of GANPI.]",
+        link: "https://github.com/chdrPE/GANPI",
+        tech: ["C++", "Google Gemini API", "System Programming"],
     },
     {
+        slug: "spikeconnect",
+        short: "SpikeConnect",
         title: "SpikeConnect",
+        type: "Mobile app",
+        status: "Completed",
+        description: "[Short description of SpikeConnect.]",
         link: "https://github.com/rsg28/Spike-Connect",
         image: SpikeConnect,
-        tech: " Javascript, React Native, Python, HTML/CSS, Selenium, Beautiful Soup",
+        tech: ["JavaScript", "React Native", "Python", "HTML/CSS", "Selenium", "Beautiful Soup"],
     },
     {
+        slug: "easychart",
+        short: "EasyChart",
         title: "EasyChart",
+        type: "Full-stack web app",
+        status: "Completed",
+        description: "[Short description of EasyChart.]",
         link: "https://github.com/CMPT-276-SUMMER-2025/final-project-5-lakes",
         image: easyChart,
-        tech: "React JS, Javascript, Tailwind CSS, Node.js, Express.js, API, DeepSeek API",
+        tech: ["React", "JavaScript", "Tailwind CSS", "Node.js", "Express.js", "DeepSeek API"],
     },
 ];
 
-export const skills = [
-    "HTML", "CSS", "Javascript", "Node.js", "React", "Express JS", "Tailwind CSS", 
-    "Bootstrap", "Python", "C", "C++", "Github", "Git", "Bash"
+export const skills: SkillSchool[] = [
+    {
+        id: "frontend",
+        title: "Front-End",
+        skills: ["TypeScript", "JavaScript", "React", "Next.js", "Tailwind CSS"],
+    },
+    {
+        id: "backend",
+        title: "Back-End",
+        skills: ["Node.js", "Express JS", "NestJS", "Python", "C/C++", "PostgreSQL", "Prisma ORM"],
+    },
+    {
+        id: "devtools",
+        title: "Dev Tools",
+        skills: ["GitHub", "Git", "Docker", "AWS", "Claude Code", "GitHub Copilot"],
+    },
 ];
 
 export const skillsIcon = [
@@ -124,43 +191,43 @@ export const skillsIcon = [
         icon: nodejs,
         alt: "node js icon"
     },
-    
+
     {
         tech: "React",
         icon: react,
         alt: "react icon"
     },
-    
+
     {
         tech: "Express JS",
         icon: express,
         alt: "express js icon"
     },
-    
+
     {
         tech: "Tailwind CSS",
         icon: tailwind,
         alt: "tailwind css icon"
     },
-    
+
     {
         tech: "Bootstrap",
         icon: bootstrap,
         alt: "bootstrap icon"
     },
-    
+
     {
         tech: "Python",
         icon: python,
         alt: "python icon"
     },
-    
+
     {
         tech: "C",
         icon: c,
         alt: "c icon"
     },
-    
+
     {
         tech: "C++",
         icon: cpp,
@@ -178,33 +245,37 @@ export const skillsIcon = [
     }
 ]
 
-export const experience = [
+export const experience: Experience[] = [
     {
-        title: "Software Engineer Intern - WSP",
+        title: "Software Engineer Intern",
         description: [
-            `Architected dynamic web interfaces with React, maintaining 100% state synchronization across complex user
-             workflows by leveraging optimized Hooks (useState, useEffect) for seamless data integration.`,
-            `Developed Full Stack applications using React Hooks and Node.js, achieving a 30% reduction in response latency
-             by implementing asynchronous Express middleware to handle concurrent API traffic`,
+            `Developed and owned a resource planning tool for structural engineering teams replacing a manual Excel workflow
+             and reducing planning time by approximately 60% using Next.js, NestJS, and Prisma ORM`,
+            `Improved planning accuracy and visibility by replacing static spreadsheets with a dynamic database layer, enabling
+             instant updates across hundreds of resource entries.`,
+            `Built a Python ETL pipeline to migrate 15k+ rows from Excel to Azure SQL, designing 10+ tables across 5
+             schemas and achieving 10-100x faster load times than row-wise inserts.`
         ],
-        date: "May 2026 - Present",
+        date: "May 2026 – Present",
         location: "Vancouver, BC",
         company: "WSP",
+        current: true,
     },
     {
-        title: "Software Engineer - Blueprint",
+        title: "Software Engineer",
         description: [
             `Architected dynamic web interfaces with React, maintaining 100% state synchronization across complex user
              workflows by leveraging optimized Hooks (useState, useEffect) for seamless data integration.`,
             `Developed Full Stack applications using React Hooks and Node.js, achieving a 30% reduction in response latency
              by implementing asynchronous Express middleware to handle concurrent API traffic`,
         ],
-        date: "Feburary 2026 - Present",
+        date: "February 2026 – Present",
         location: "Burnaby, BC",
         company: "Blueprint",
+        current: true,
     },
     {
-        title: "Software Developer - SFU Robot Soccer Club",
+        title: "Software Developer",
         description: [
             `Developed a C++/Qt path-planning component using RVO2 (ORCA), including a coordinator layer for
              agent/obstacle management, timestep simulation, and signal-driven velocity updates.`,
@@ -213,8 +284,9 @@ export const experience = [
             `Collaborated cross-functionally with 5+ team leads in weekly design reviews, delivering 15+ feature tickets on
              schedule through Agile workflows managed via Jira and GitLab`
         ],
-        date: "September 2025 - Present",
+        date: "September 2025 – Present",
         location: "Burnaby, BC",
         company: "SFU Robot Soccer Club",
+        current: true,
     }
 ];
