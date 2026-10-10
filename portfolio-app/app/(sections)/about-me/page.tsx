@@ -57,9 +57,6 @@ export default function AboutMe() {
             ))}
           </dl>
 
-          <Label as="h2" className="mt-8">
-            Lore
-          </Label>
           <div className="mt-3 space-y-4">
             {profile.lore.map((paragraph) => (
               <p key={paragraph} className="font-body text-[20px] leading-normal text-parchment-200">
