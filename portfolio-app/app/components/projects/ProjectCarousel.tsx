@@ -8,18 +8,20 @@ import CarouselDots from "./CarouselDots";
 import ProjectCard from "./ProjectCard";
 import { mod, slotFor, wrapOffset } from "./carousel-math";
 
-type Layout = { cardWidth: number; spread: number; reach: number; compact: boolean };
+// `scale` is the root font size over 16px (0.75 on desktop), so px geometry tracks the rem-based styles.
+type Layout = { cardWidth: number; spread: number; reach: number; compact: boolean; scale: number };
 
-const DESKTOP: Layout = { cardWidth: 520, spread: 400, reach: 2, compact: false };
+const DESKTOP: Layout = { cardWidth: 520, spread: 400, reach: 2, compact: false, scale: 1 };
 const SWIPE_DISTANCE = 50; // px
 const SWIPE_VELOCITY = 500; // px/s
+// Unscaled px; multiplied by Layout.scale where used.
 const ARROW_SIZE = 80; // CarouselArrow hit area (size-20)
 const STAGE_PAD_TOP = 8; // stage pt-2
 const MIN_IMAGE_HEIGHT = 88; // below this the page scrolls rather than squash the screenshot further
 
 // Image height that makes the whole page fit the viewport: the page's natural height minus the current
 // image height is everything else, and the image gets whatever the viewport has left.
-function fitImageHeight(stage: HTMLElement): number | null {
+function fitImageHeight(stage: HTMLElement, scale: number): number | null {
   const main = stage.closest("main");
   const image = stage.querySelector<HTMLElement>("[data-active] [data-card-image]");
   if (!main || !image || !main.firstElementChild || !main.lastElementChild) return null;
@@ -30,18 +32,18 @@ function fitImageHeight(stage: HTMLElement): number | null {
   const stretch = main.clientHeight - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom) - used;
   const pageHeight = document.documentElement.scrollHeight - Math.max(stretch, 0);
   const rest = pageHeight - image.offsetHeight;
-  return Math.max(MIN_IMAGE_HEIGHT, Math.floor(window.innerHeight - rest));
+  return Math.max(MIN_IMAGE_HEIGHT * scale, Math.floor(window.innerHeight - rest));
 }
 
 // Breakpoints follow the viewport; the phone layout is sized from the (full-bleed) stage width.
-function layoutFor(viewport: number, stage: number): Layout {
-  if (viewport >= 1280) return DESKTOP;
-  if (viewport >= 1024) return { cardWidth: 460, spread: 340, reach: 2, compact: false };
-  if (viewport >= 768) return { cardWidth: 440, spread: 300, reach: 1, compact: false };
+function layoutFor(viewport: number, stage: number, scale: number): Layout {
+  if (viewport >= 1280) return { cardWidth: 520 * scale, spread: 400 * scale, reach: 2, compact: false, scale };
+  if (viewport >= 1024) return { cardWidth: 460 * scale, spread: 340 * scale, reach: 2, compact: false, scale };
+  if (viewport >= 768) return { cardWidth: 440 * scale, spread: 300 * scale, reach: 1, compact: false, scale };
   const cardWidth = Math.min(stage * 0.86, 400);
   // Neighbours (scale 0.8) peek 6% of the stage in from each edge.
   const spread = stage * 0.44 + (cardWidth * 0.8) / 2;
-  return { cardWidth, spread, reach: 1, compact: true };
+  return { cardWidth, spread, reach: 1, compact: true, scale };
 }
 
 type Drag = { id: number; x: number; y: number; t: number; dragging: boolean };
@@ -63,9 +65,10 @@ export default function ProjectCarousel({ projects }: { projects: Project[] }) {
     const stage = stageRef.current;
     if (!stage) return;
     const update = () => {
-      setLayout(layoutFor(window.innerWidth, stage.clientWidth));
+      const scale = parseFloat(getComputedStyle(document.documentElement).fontSize) / 16;
+      setLayout(layoutFor(window.innerWidth, stage.clientWidth, scale));
       // Phones scroll anyway; keep their screenshots at full 16:9.
-      setFitHeight(window.innerWidth >= 768 ? fitImageHeight(stage) : null);
+      setFitHeight(window.innerWidth >= 768 ? fitImageHeight(stage, scale) : null);
     };
     // The stage resizes with the viewport width, font loading and the fitted image; height-only
     // viewport changes only reach the window resize event.
@@ -87,7 +90,7 @@ export default function ProjectCarousel({ projects }: { projects: Project[] }) {
     return () => observer.disconnect();
   }, [active]);
 
-  const { cardWidth, spread, reach, compact } = layout ?? DESKTOP;
+  const { cardWidth, spread, reach, compact, scale } = layout ?? DESKTOP;
   const imageHeight = Math.min(fitHeight ?? Infinity, (cardWidth * 9) / 16);
   const current = projects[active];
 
@@ -161,8 +164,9 @@ export default function ProjectCarousel({ projects }: { projects: Project[] }) {
   }
 
   // Each arrow sits over the middle of its neighbour card, level with the active card's centre.
-  const arrowInset = `calc(50% - ${spread + ARROW_SIZE / 2}px)`;
-  const arrowTop = STAGE_PAD_TOP + (cardHeight ?? cardWidth * 1.09) / 2 - ARROW_SIZE / 2;
+  const arrowSize = ARROW_SIZE * scale;
+  const arrowInset = `calc(50% - ${spread + arrowSize / 2}px)`;
+  const arrowTop = STAGE_PAD_TOP * scale + (cardHeight ?? cardWidth * 1.09) / 2 - arrowSize / 2;
   const dots = (
     <CarouselDots count={n} active={active} onSelect={go} labels={projects.map((p) => p.name)} />
   );
@@ -187,7 +191,7 @@ export default function ProjectCarousel({ projects }: { projects: Project[] }) {
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerCancel}
         onClickCapture={onClickCapture}
-        className="relative -mx-4 grid w-[calc(100%+2rem)] touch-pan-y select-none overflow-x-clip pb-3 pt-2 sm:-mx-8 sm:w-[calc(100%+4rem)] lg:-mx-[72px] lg:w-[calc(100%+144px)]"
+        className="relative -mx-4 grid w-[calc(100%+2rem)] touch-pan-y select-none overflow-x-clip pb-3 pt-2 sm:-mx-8 sm:w-[calc(100%+4rem)] lg:-mx-[4.5rem] lg:w-[calc(100%+9rem)]"
       >
         {projects.map((project, i) => {
           const offset = wrapOffset(i, active, n);

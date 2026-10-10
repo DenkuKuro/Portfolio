@@ -8,7 +8,7 @@ import { sections } from "@/constants";
 import { sectionHref } from "@/lib/sections";
 import { useMenuKeys } from "@/lib/useMenuKeys";
 
-const ITEM_HEIGHT = 52;
+const ITEM_HEIGHT = 3.25; // rem, so it follows the desktop root scale
 
 export default function TitleMenu() {
   const router = useRouter();
@@ -43,8 +43,8 @@ export default function TitleMenu() {
         {/* Selection bar follows hover and keyboard focus */}
         <span
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 mx-auto w-[240px] border-y bg-[linear-gradient(90deg,transparent,rgb(154_118_56/0.85)_18%,rgb(154_118_56/0.85)_82%,transparent)] transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] [border-image:linear-gradient(90deg,transparent,rgb(243_226_181/0.7),transparent)_1]"
-          style={{ height: ITEM_HEIGHT, transform: `translateY(${focused * ITEM_HEIGHT}px)` }}
+          className="pointer-events-none absolute inset-x-0 top-0 mx-auto w-[15rem] border-y bg-[linear-gradient(90deg,transparent,rgb(154_118_56/0.85)_18%,rgb(154_118_56/0.85)_82%,transparent)] transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] [border-image:linear-gradient(90deg,transparent,rgb(243_226_181/0.7),transparent)_1]"
+          style={{ height: `${ITEM_HEIGHT}rem`, transform: `translateY(${focused * ITEM_HEIGHT}rem)` }}
         />
         {sections.map((section, i) => (
           <li key={section.id} className="relative">
@@ -56,10 +56,10 @@ export default function TitleMenu() {
               onMouseEnter={() => setFocused(i)}
               onFocus={() => setFocused(i)}
               className={clsx(
-                "flex w-[240px] items-center justify-center font-display text-[15px] uppercase tracking-[0.35em] transition-colors duration-200 focus-visible:outline-offset-0",
+                "flex w-[15rem] items-center justify-center font-display text-[0.9375rem] uppercase tracking-[0.35em] transition-colors duration-200 focus-visible:outline-offset-0",
                 i === focused ? "text-gold-100 text-glow" : "text-parchment-200/85",
               )}
-              style={{ height: ITEM_HEIGHT }}
+              style={{ height: `${ITEM_HEIGHT}rem` }}
             >
               <span className="-mr-[0.35em]">{section.title}</span>
             </Link>

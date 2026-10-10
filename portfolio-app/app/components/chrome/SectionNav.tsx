@@ -45,7 +45,7 @@ export default function SectionNav() {
                 href={sectionHref(section.id)}
                 aria-current={active ? "page" : undefined}
                 className={clsx(
-                  "flex min-h-11 items-center border px-[22px] py-[13px] font-display text-[13px] uppercase leading-none tracking-[0.3em] transition-[color,border-color,box-shadow] duration-200",
+                  "flex min-h-11 items-center border px-[1.375rem] py-[0.8125rem] font-display text-[0.8125rem] uppercase leading-none tracking-[0.3em] transition-[color,border-color,box-shadow] duration-200",
                   active
                     ? "bg-gold-active border-gold-400/60 text-gold-100 shadow-glow"
                     : "border-transparent text-parchment-200 hover:border-gold-400/40 hover:text-gold-200",

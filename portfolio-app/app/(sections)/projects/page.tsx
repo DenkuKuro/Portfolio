@@ -15,7 +15,7 @@ export default function Projects() {
       <SectionTitle section={section} />
 
       {/* The carousel reads ?item= on the client; the fallback keeps its height in the static shell */}
-      <Suspense fallback={<div className="min-h-[640px]" />}>
+      <Suspense fallback={<div className="min-h-[40rem]" />}>
         <ProjectCarousel projects={projects} />
       </Suspense>
     </>

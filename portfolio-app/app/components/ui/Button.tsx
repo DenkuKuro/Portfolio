@@ -5,10 +5,10 @@ import type { ComponentProps, ReactNode } from "react";
 type Variant = "gold" | "ghost";
 
 const base =
-  "inline-flex min-h-11 items-center justify-center gap-2 px-7 py-[15px] font-display text-[12px] uppercase leading-none tracking-[0.3em] transition-[box-shadow,border-color,color,background-color] duration-200 disabled:cursor-not-allowed disabled:opacity-60";
+  "inline-flex min-h-11 items-center justify-center gap-2 px-7 py-[0.9375rem] font-display text-[0.75rem] uppercase leading-none tracking-[0.3em] transition-[box-shadow,border-color,color,background-color] duration-200 disabled:cursor-not-allowed disabled:opacity-60";
 
 const variants: Record<Variant, string> = {
-  gold: "bg-gold-active border border-gold-300/60 text-gold-100 shadow-glow hover:border-gold-200 hover:shadow-[0_0_30px_rgb(214_170_90/0.55)]",
+  gold: "bg-gold-active border border-gold-300/60 text-gold-100 shadow-glow hover:border-gold-200 hover:shadow-[0_0_1.875rem_rgb(214_170_90/0.55)]",
   ghost: "border border-gold-400/60 text-gold-300 hover:border-gold-300 hover:bg-gold-400/10 hover:text-gold-100",
 };
 

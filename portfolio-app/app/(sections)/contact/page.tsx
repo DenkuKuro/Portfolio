@@ -16,10 +16,10 @@ export default function Contact() {
     <>
       <SectionTitle section={section} />
 
-      <Panel className="grid w-full max-w-[1060px] animate-rise gap-10 px-5 py-8 [animation-delay:80ms] sm:px-10 sm:py-10 lg:grid-cols-[380px_1fr] lg:gap-12">
+      <Panel className="grid w-full max-w-[66.25rem] animate-rise gap-10 px-5 py-8 [animation-delay:80ms] sm:px-10 sm:py-10 lg:grid-cols-[23.75rem_1fr] lg:gap-12">
         <div>
           <Label as="h2">{contactCopy.label}</Label>
-          <p className="mt-3 font-body text-[20px] italic text-muted">{contactCopy.availability}</p>
+          <p className="mt-3 font-body text-[1.25rem] italic text-muted">{contactCopy.availability}</p>
 
           <ul className="mt-6">
             {contactLinks.map((link) => {
@@ -33,7 +33,7 @@ export default function Contact() {
                     <Label as="span" tone="dim" className="block">
                       {link.label}
                     </Label>
-                    <span className="block truncate font-body text-[19px] text-parchment-200 transition-colors group-hover:text-gold-200">{link.value}</span>
+                    <span className="block truncate font-body text-[1.1875rem] text-parchment-200 transition-colors group-hover:text-gold-200">{link.value}</span>
                   </span>
                 </>
               );

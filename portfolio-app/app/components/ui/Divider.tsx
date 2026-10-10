@@ -6,9 +6,9 @@ type DividerProps = {
 };
 
 const lineWidth = {
-  sm: "w-[90px] sm:w-[120px]",
-  md: "w-[110px] sm:w-[200px]",
-  lg: "w-[130px] sm:w-[260px] lg:w-[340px]",
+  sm: "w-[5.625rem] sm:w-[7.5rem]",
+  md: "w-[6.875rem] sm:w-[12.5rem]",
+  lg: "w-[8.125rem] sm:w-[16.25rem] lg:w-[21.25rem]",
 };
 
 export function Star({ className }: { className?: string }) {
@@ -16,7 +16,7 @@ export function Star({ className }: { className?: string }) {
     <svg
       aria-hidden
       viewBox="0 0 14 14"
-      className={clsx("size-3.5 shrink-0 drop-shadow-[0_0_6px_rgb(255_205_120/0.7)]", className)}
+      className={clsx("size-3.5 shrink-0 drop-shadow-[0_0_0.375rem_rgb(255_205_120/0.7)]", className)}
     >
       <path d="M7 0 L8.4 5.6 L14 7 L8.4 8.4 L7 14 L5.6 8.4 L0 7 L5.6 5.6 Z" fill="#f3d998" />
     </svg>

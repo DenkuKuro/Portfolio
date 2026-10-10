@@ -12,7 +12,7 @@ type Copy = { replyNote: string; sentTitle: string; sentBody: string };
 const initialState: ContactState = { status: "idle" };
 
 const inputClass =
-  "mt-2 w-full border border-gold-400/40 bg-ink/50 px-4 py-3 font-body text-[19px] text-parchment placeholder:text-dim/60 transition-colors focus:border-gold-300 focus:outline-none focus-visible:outline-2 focus-visible:outline-gold-300 aria-invalid:border-gold-500";
+  "mt-2 w-full border border-gold-400/40 bg-ink/50 px-4 py-3 font-body text-[1.1875rem] text-parchment placeholder:text-dim/60 transition-colors focus:border-gold-300 focus:outline-none focus-visible:outline-2 focus-visible:outline-gold-300 aria-invalid:border-gold-500";
 
 function Field({
   id,
@@ -32,7 +32,7 @@ function Field({
       </label>
       {children}
       {error && (
-        <p id={`${id}-error`} className="mt-1.5 font-body text-[18px] italic text-gold-400">
+        <p id={`${id}-error`} className="mt-1.5 font-body text-[1.125rem] italic text-gold-400">
           {error}
         </p>
       )}
@@ -47,10 +47,10 @@ function Form({ copy, onSent }: { copy: Copy; onSent: () => void }) {
     return (
       <div className="flex flex-col items-center py-8 text-center" role="status">
         <Star className="size-12" />
-        <h2 className="mt-5 font-display text-[26px] font-medium uppercase tracking-[0.3em] text-gold-100 text-glow">
+        <h2 className="mt-5 font-display text-[1.625rem] font-medium uppercase tracking-[0.3em] text-gold-100 text-glow">
           {copy.sentTitle}
         </h2>
-        <p className="mt-3 font-body text-[20px] italic text-muted">{copy.sentBody}</p>
+        <p className="mt-3 font-body text-[1.25rem] italic text-muted">{copy.sentBody}</p>
         <Button variant="ghost" className="mt-8" onClick={onSent}>
           Write Another
         </Button>
@@ -111,13 +111,13 @@ function Form({ copy, onSent }: { copy: Copy; onSent: () => void }) {
       </div>
 
       {state.message && (
-        <p role="alert" className="font-body text-[19px] italic text-gold-300">
+        <p role="alert" className="font-body text-[1.1875rem] italic text-gold-300">
           {state.message}
         </p>
       )}
 
       <div className="flex flex-col-reverse items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <p className="font-body text-[18px] italic text-dim">{copy.replyNote}</p>
+        <p className="font-body text-[1.125rem] italic text-dim">{copy.replyNote}</p>
         <Button type="submit" disabled={pending}>
           {pending ? "Sending…" : "Send Message"}
         </Button>

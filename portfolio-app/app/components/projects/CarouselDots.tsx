@@ -12,7 +12,7 @@ const pad = (n: number) => String(n).padStart(2, "0");
 export default function CarouselDots({ count, active, onSelect, labels }: CarouselDotsProps) {
   return (
     <div className="flex items-center gap-3">
-      <span aria-hidden className="font-display text-[13px] tracking-[0.2em] text-gold-200">
+      <span aria-hidden className="font-display text-[0.8125rem] tracking-[0.2em] text-gold-200">
         {pad(active + 1)}
       </span>
       <ul className="flex items-center">
@@ -32,7 +32,7 @@ export default function CarouselDots({ count, active, onSelect, labels }: Carous
                   className={clsx(
                     "size-2.5 rotate-45 border transition-[background-color,border-color,box-shadow] duration-300",
                     current
-                      ? "border-gold-200 bg-gold-300 shadow-[0_0_12px_rgb(255_205_120/0.85)]"
+                      ? "border-gold-200 bg-gold-300 shadow-[0_0_0.75rem_rgb(255_205_120/0.85)]"
                       : "border-gold-400/70 bg-ink group-hover:border-gold-200",
                   )}
                 />
@@ -41,7 +41,7 @@ export default function CarouselDots({ count, active, onSelect, labels }: Carous
           );
         })}
       </ul>
-      <span aria-hidden className="font-display text-[13px] tracking-[0.2em] text-dim">
+      <span aria-hidden className="font-display text-[0.8125rem] tracking-[0.2em] text-dim">
         {pad(count)}
       </span>
     </div>

@@ -19,12 +19,12 @@ export default function AboutMe() {
       <SectionTitle section={section} />
 
       <div className="flex w-full animate-rise flex-col items-center gap-10 [animation-delay:80ms] lg:flex-row lg:items-start lg:justify-center lg:gap-14">
-        <figure className="flex w-[240px] shrink-0 flex-col items-center gap-5 lg:w-[330px]">
+        <figure className="flex w-[15rem] shrink-0 flex-col items-center gap-5 lg:w-[20.625rem]">
           <div className="relative w-full border border-gold-400/70 p-2 shadow-panel">
-            <Gem className="absolute -left-[5px] -top-[5px]" />
-            <Gem className="absolute -right-[5px] -top-[5px]" />
-            <Gem className="absolute -bottom-[5px] -left-[5px]" />
-            <Gem className="absolute -bottom-[5px] -right-[5px]" />
+            <Gem className="absolute -left-[0.3125rem] -top-[0.3125rem]" />
+            <Gem className="absolute -right-[0.3125rem] -top-[0.3125rem]" />
+            <Gem className="absolute -bottom-[0.3125rem] -left-[0.3125rem]" />
+            <Gem className="absolute -bottom-[0.3125rem] -right-[0.3125rem]" />
             <div className="relative aspect-[330/410] overflow-hidden border border-gold-400/35">
               <Image
                 src={selfie}
@@ -36,30 +36,30 @@ export default function AboutMe() {
               />
             </div>
           </div>
-          <figcaption className="text-center font-body text-[19px] italic leading-snug text-muted">
+          <figcaption className="text-center font-body text-[1.1875rem] italic leading-snug text-muted">
             {profile.quote}
           </figcaption>
         </figure>
 
-        <Panel className="w-full max-w-[780px] px-6 py-8 sm:px-10 sm:py-9">
+        <Panel className="w-full max-w-[48.75rem] px-6 py-8 sm:px-10 sm:py-9">
           <Label as="h2">Status</Label>
           <dl className="mt-4">
             {profile.status.map((row) => (
               <div
                 key={row.label}
-                className="grid gap-1 border-b border-gold-400/15 py-2.5 last:border-b-0 sm:grid-cols-[190px_1fr] sm:gap-4"
+                className="grid gap-1 border-b border-gold-400/15 py-2.5 last:border-b-0 sm:grid-cols-[11.875rem_1fr] sm:gap-4"
               >
                 <Label as="dt" tone="dim" className="pt-1">
                   {row.label}
                 </Label>
-                <dd className="font-body text-[20px] leading-snug text-parchment">{row.value}</dd>
+                <dd className="font-body text-[1.25rem] leading-snug text-parchment">{row.value}</dd>
               </div>
             ))}
           </dl>
 
           <div className="mt-3 space-y-4">
             {profile.lore.map((paragraph) => (
-              <p key={paragraph} className="font-body text-[20px] leading-normal text-parchment-200">
+              <p key={paragraph} className="font-body text-[1.25rem] leading-normal text-parchment-200">
                 {paragraph}
               </p>
             ))}

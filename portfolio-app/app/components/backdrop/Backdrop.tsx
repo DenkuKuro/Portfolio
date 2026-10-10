@@ -40,7 +40,7 @@ export default function Backdrop() {
       <div
         className={clsx(
           "absolute inset-0 transition-[filter] duration-[600ms] ease-out",
-          isTitle ? "blur-0 brightness-100" : "blur-[9px] brightness-[0.78]",
+          isTitle ? "blur-0 brightness-100" : "blur-[0.5625rem] brightness-[0.78]",
         )}
       >
         <div className="absolute inset-0 scale-105 animate-breathe">
@@ -85,7 +85,7 @@ export default function Backdrop() {
         {embers.map((e, i) => (
           <span
             key={i}
-            className="absolute bottom-[-10px] rounded-full bg-gold-300 shadow-[0_0_6px_rgb(255_205_120/0.8)] animate-ember"
+            className="absolute bottom-[-0.625rem] rounded-full bg-gold-300 shadow-[0_0_0.375rem_rgb(255_205_120/0.8)] animate-ember"
             style={
               {
                 left: `${e.left}%`,

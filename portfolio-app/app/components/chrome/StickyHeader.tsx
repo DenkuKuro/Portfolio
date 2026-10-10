@@ -17,7 +17,7 @@ export default function StickyHeader({ children }: { children: ReactNode }) {
   return (
     <header
       data-scrolled={scrolled || undefined}
-      className="sticky top-0 z-20 bg-ink/75 px-4 pb-3 pt-4 backdrop-blur-md transition-[background-color,backdrop-filter] duration-300 sm:px-8 lg:bg-transparent lg:px-[72px] lg:pb-4 lg:pt-[34px] lg:backdrop-blur-none lg:data-scrolled:bg-ink/75 lg:data-scrolled:backdrop-blur-md"
+      className="sticky top-0 z-20 bg-ink/75 px-4 pb-3 pt-4 backdrop-blur-md transition-[background-color,backdrop-filter] duration-300 sm:px-8 lg:bg-transparent lg:px-[4.5rem] lg:pb-4 lg:pt-[2.125rem] lg:backdrop-blur-none lg:data-scrolled:bg-ink/75 lg:data-scrolled:backdrop-blur-md"
     >
       {children}
     </header>

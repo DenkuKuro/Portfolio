@@ -69,7 +69,7 @@ export default function ProjectCard({ project, index, total, slot, isActive, wid
           ) : (
             <ImagePlaceholder />
           )}
-          <span className="absolute left-3 top-3 border border-gold-400/50 bg-ink/85 px-2.5 py-1 font-display text-[12px] tracking-[0.2em] text-gold-200">
+          <span className="absolute left-3 top-3 border border-gold-400/50 bg-ink/85 px-2.5 py-1 font-display text-[0.75rem] tracking-[0.2em] text-gold-200">
             {numerals[index] ?? index + 1}
           </span>
         </div>
@@ -78,16 +78,16 @@ export default function ProjectCard({ project, index, total, slot, isActive, wid
           <Label tone="dim">
             {project.type} · <span className="text-muted">{project.status}</span>
           </Label>
-          <h2 className="font-display text-[22px] font-medium uppercase leading-tight tracking-[0.14em] text-gold-100 text-glow sm:text-[24px]">
+          <h2 className="font-display text-[1.375rem] font-medium uppercase leading-tight tracking-[0.14em] text-gold-100 text-glow sm:text-[1.5rem]">
             {project.name}
           </h2>
-          <p className="line-clamp-2 font-body [@media(max-height:820px)]:line-clamp-1 text-[19px] leading-snug text-parchment-200">{project.description}</p>
+          <p className="line-clamp-2 font-body [@media(max-height:820px)]:line-clamp-1 text-[1.1875rem] leading-snug text-parchment-200">{project.description}</p>
 
           <ul aria-label="Built with" className="mt-0.5 flex flex-wrap gap-1.5">
             {project.tech.map((tech) => (
               <li
                 key={tech}
-                className="border border-gold-400/40 bg-ink/40 px-2 py-0.5 font-display text-[11px] uppercase tracking-[0.14em] text-gold-300"
+                className="border border-gold-400/40 bg-ink/40 px-2 py-0.5 font-display text-[0.6875rem] uppercase tracking-[0.14em] text-gold-300"
               >
                 {tech}
               </li>

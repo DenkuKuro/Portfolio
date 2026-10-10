@@ -83,6 +83,13 @@
     color-scheme: dark;
     background-color: var(--color-ink);
   }
+  /* Desktop renders at 75%: every size is in rem, so this scales the whole UI like browser zoom.
+     Media queries still resolve rem at 16px, so breakpoints are unaffected. */
+  @media (width >= 64rem) {
+    html {
+      font-size: 75%;
+    }
+  }
   /* Own stacking context: the -z-10 backdrop paints above any body background, never behind it */
   body {
     isolation: isolate;

@@ -14,36 +14,36 @@ export default function Experience() {
     <>
       <SectionTitle section={section} />
 
-      <Panel className="w-full max-w-[1080px] animate-rise px-5 py-8 [animation-delay:80ms] sm:px-10 sm:py-10">
+      <Panel className="w-full max-w-[67.5rem] animate-rise px-5 py-8 [animation-delay:80ms] sm:px-10 sm:py-10">
         <ol className="relative">
           {/* Rail runs through the node column and fades downward */}
           <span
             aria-hidden
-            className="absolute bottom-2 left-[21.5px] top-2 w-px bg-linear-to-b from-gold-400 via-gold-400/50 to-transparent"
+            className="absolute bottom-2 left-[1.3438rem] top-2 w-px bg-linear-to-b from-gold-400 via-gold-400/50 to-transparent"
           />
           {experience.map((job) => (
             <li
               key={`${job.company}-${job.title}`}
-              className="relative grid grid-cols-[44px_1fr] gap-y-1 pb-9 last:pb-0 lg:grid-cols-[44px_170px_1fr]"
+              className="relative grid grid-cols-[2.75rem_1fr] gap-y-1 pb-9 last:pb-0 lg:grid-cols-[2.75rem_10.625rem_1fr]"
             >
-              <div className="flex justify-center pt-[7px] lg:row-span-2">
+              <div className="flex justify-center pt-[0.4375rem] lg:row-span-2">
                 <Gem lit={job.current} />
               </div>
 
               <div className="col-start-2 lg:pr-6">
-                <p className="font-display text-[12px] uppercase tracking-[0.2em] text-dim">{job.date}</p>
-                {job.current && <p className="mt-1 font-body text-[18px] italic text-gold-300">Now</p>}
+                <p className="font-display text-[0.75rem] uppercase tracking-[0.2em] text-dim">{job.date}</p>
+                {job.current && <p className="mt-1 font-body text-[1.125rem] italic text-gold-300">Now</p>}
               </div>
 
               <div className="col-start-2 lg:col-start-3 lg:row-span-2 lg:row-start-1">
-                <h2 className="font-display text-[19px] font-medium tracking-[0.08em] text-gold-200">{job.title}</h2>
-                <p className="font-body text-[19px] italic text-muted">
+                <h2 className="font-display text-[1.1875rem] font-medium tracking-[0.08em] text-gold-200">{job.title}</h2>
+                <p className="font-body text-[1.1875rem] italic text-muted">
                   {job.company} · {job.location}
                 </p>
                 <ul className="mt-3 space-y-2">
                   {job.description.map((point) => (
-                    <li key={point} className="flex gap-3 font-body text-[19px] leading-normal text-parchment-200">
-                      <span aria-hidden className="mt-[11px] size-[6px] shrink-0 rotate-45 bg-gold-500" />
+                    <li key={point} className="flex gap-3 font-body text-[1.1875rem] leading-normal text-parchment-200">
+                      <span aria-hidden className="mt-[0.6875rem] size-[0.375rem] shrink-0 rotate-45 bg-gold-500" />
                       <span>{point.replace(/\s+/g, " ")}</span>
                     </li>
                   ))}

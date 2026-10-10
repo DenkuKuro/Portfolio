@@ -12,7 +12,7 @@ export default function Label({ children, tone = "gold", as: Tag = "p", classNam
   return (
     <Tag
       className={clsx(
-        "font-display text-[12px] uppercase tracking-[0.28em]",
+        "font-display text-[0.75rem] uppercase tracking-[0.28em]",
         tone === "gold" ? "text-gold-400" : "text-dim",
         className,
       )}

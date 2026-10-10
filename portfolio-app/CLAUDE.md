@@ -17,7 +17,9 @@ see `docs/Projects Carousel — Implementation Plan.md`.
 - All copy lives in `constants/index.ts` (types in `constants/types.ts`). Never hardcode content in pages.
 - `sections` in `constants/index.ts` is the single source of menu order, tab order, chapter numerals and ←/→ cycling.
 - Server Components by default. Client only: Backdrop, TitleMenu, SectionNav, StickyHeader, ProjectCarousel, ContactForm.
-- Body text never below 18px. Panel alpha never below 0.6. Touch targets ≥ 44px. Decorative SVGs `aria-hidden`.
+- Size in rem, never px (hairlines ≤2px excepted): `html` is `font-size: 75%` from lg, which scales the whole
+  desktop UI. JS geometry multiplies its px by root font-size / 16 (see ProjectCarousel `scale`).
+- Body text never below 18px (1.125rem; renders 13.5px on desktop). Panel alpha never below 0.6. Touch targets ≥ 44px. Decorative SVGs `aria-hidden`.
 - Animations must switch off under `prefers-reduced-motion` (handled globally in globals.css).
 
 ## Tokens (Tailwind classes)

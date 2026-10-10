@@ -14,7 +14,7 @@ export default function Skills() {
     <>
       <SectionTitle section={section} />
 
-      <div className="grid w-full max-w-[1260px] animate-rise gap-8 [animation-delay:80ms] md:grid-cols-2 lg:grid-cols-3 lg:px-[18px]">
+      <div className="grid w-full max-w-[78.75rem] animate-rise gap-8 [animation-delay:80ms] md:grid-cols-2 lg:grid-cols-3 lg:px-[1.125rem]">
         {skills.map((school) => {
           const Icon = schoolIcons[school.id];
           return (
@@ -24,16 +24,16 @@ export default function Skills() {
                   <Icon className="size-6 -rotate-45 text-gold-300" />
                 </div>
               </div>
-              <h2 className="mt-4 font-display text-[19px] font-medium uppercase tracking-[0.28em] text-gold-200">
+              <h2 className="mt-4 font-display text-[1.1875rem] font-medium uppercase tracking-[0.28em] text-gold-200">
                 {school.title}
               </h2>
               <ul className="mt-6 w-full">
                 {school.skills.map((skill) => (
                   <li
                     key={skill}
-                    className="flex items-center gap-3 border-b border-gold-400/15 py-2.5 font-body text-[20px] text-parchment-200 last:border-b-0"
+                    className="flex items-center gap-3 border-b border-gold-400/15 py-2.5 font-body text-[1.25rem] text-parchment-200 last:border-b-0"
                   >
-                    <span aria-hidden className="size-[6px] shrink-0 rotate-45 bg-gold-500" />
+                    <span aria-hidden className="size-[0.375rem] shrink-0 rotate-45 bg-gold-500" />
                     {skill}
                   </li>
                 ))}
