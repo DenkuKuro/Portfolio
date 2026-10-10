@@ -1,12 +1,13 @@
 import Link from "next/link";
 import SectionNav from "@/app/components/chrome/SectionNav";
+import StickyHeader from "@/app/components/chrome/StickyHeader";
 import Footer from "@/app/components/chrome/Footer";
 import { profile } from "@/constants";
 
 export default function SectionsLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-dvh flex-1 flex-col">
-      <header className="sticky top-0 z-20 bg-ink/75 px-4 pb-3 pt-4 backdrop-blur-md sm:px-8 lg:static lg:bg-transparent lg:px-[72px] lg:pb-0 lg:pt-[34px] lg:backdrop-blur-none">
+      <StickyHeader>
         {/* Full name + centered tabs only fit side by side from 1360px; below that the tabs drop under the name */}
         <div className="grid grid-cols-1 items-center gap-x-6 gap-y-3 lg:max-[1359px]:justify-items-center min-[1360px]:grid-cols-[1fr_auto_1fr]">
           <Link
@@ -19,9 +20,9 @@ export default function SectionsLayout({ children }: { children: React.ReactNode
             <SectionNav />
           </div>
         </div>
-      </header>
+      </StickyHeader>
 
-      <main className="flex flex-1 flex-col px-4 py-10 sm:px-8 lg:justify-center lg:px-[72px] lg:py-6">
+      <main className="flex flex-1 flex-col px-4 py-10 sm:px-8 lg:justify-center lg:px-[72px] lg:pb-6 lg:pt-2">
         {children}
       </main>
 

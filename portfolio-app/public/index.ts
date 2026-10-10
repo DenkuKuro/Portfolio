@@ -25,6 +25,8 @@ import express from "./express-js.png";
 import contact_pic from "./contact-pic.png";
 import easyChart from "./easychart.png";
 import docker from "./docker.png";
+import sfuCourseCompass from "./sfu-course-compass.png";
+import ganpi from "./ganpi.png"
 
 export {
     logo,
@@ -54,4 +56,6 @@ export {
     contact_pic,
     easyChart,
     docker,
+    sfuCourseCompass,
+    ganpi
 };

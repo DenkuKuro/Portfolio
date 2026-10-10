@@ -33,15 +33,13 @@ export type Experience = {
 
 export type Project = {
     slug: string;        // used in ?item=
-    short: string;       // slot label
-    title: string;
+    name: string;
     type: string;
     status: string;
-    description: string;
+    description: string; // keep to ~120 characters; clamped to 2 lines on the card
     tech: string[];
-    link?: string;       // source
-    details?: string;
-    image?: StaticImageData;
+    image?: { src: StaticImageData; alt: string };
+    links?: { details?: string; source?: string };
 };
 
 export type SkillSchool = {

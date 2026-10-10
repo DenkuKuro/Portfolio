@@ -4,7 +4,8 @@
 
 Souls-style portfolio: a title menu over a sharp landscape; every section screen blurs and dims that same
 background and lays a dark, gold-trimmed panel over it. Full spec: `docs/PLAN.md` (this repo deviates from
-its file layout — follow the structure below).
+its file layout — follow the structure below). The Projects page is a carousel, not the inventory grid —
+see `docs/Projects Carousel — Implementation Plan.md`.
 
 ## Stack
 - Next.js 16 App Router with `cacheComponents` + `partialPrefetching` (visited routes stay mounted in
@@ -15,7 +16,7 @@ its file layout — follow the structure below).
 ## Rules
 - All copy lives in `constants/index.ts` (types in `constants/types.ts`). Never hardcode content in pages.
 - `sections` in `constants/index.ts` is the single source of menu order, tab order, chapter numerals and ←/→ cycling.
-- Server Components by default. Client only: Backdrop, TitleMenu, SectionNav, Inventory, ContactForm.
+- Server Components by default. Client only: Backdrop, TitleMenu, SectionNav, StickyHeader, ProjectCarousel, ContactForm.
 - Body text never below 18px. Panel alpha never below 0.6. Touch targets ≥ 44px. Decorative SVGs `aria-hidden`.
 - Animations must switch off under `prefers-reduced-motion` (handled globally in globals.css).
 
@@ -33,6 +34,7 @@ app/
     about-me/ skills/ projects/ experience/ contact/ (+ contact/actions.ts server action)
   components/
     backdrop/ menu/ chrome/ ui/ icons/ sections/
+    projects/           ProjectCarousel (client) + card/arrow/dots; carousel-math.ts (+ .test.ts, `npm test`)
 constants/              index.ts (content), types.ts
 lib/                    sections.ts (href helpers), useMenuKeys.ts (arrow/Enter/Esc)
 public/bg/landscape.png the background
