@@ -16,7 +16,7 @@ see `docs/Projects Carousel — Implementation Plan.md`.
 ## Rules
 - All copy lives in `constants/index.ts` (types in `constants/types.ts`). Never hardcode content in pages.
 - `sections` in `constants/index.ts` is the single source of menu order, tab order, chapter numerals and ←/→ cycling.
-- Server Components by default. Client only: Backdrop, TitleMenu, SectionNav, ProjectCarousel, ContactForm.
+- Server Components by default. Client only: Backdrop, TitleMenu, SectionNav, StickyHeader, ProjectCarousel, ContactForm.
 - Body text never below 18px. Panel alpha never below 0.6. Touch targets ≥ 44px. Decorative SVGs `aria-hidden`.
 - Animations must switch off under `prefers-reduced-motion` (handled globally in globals.css).
 
