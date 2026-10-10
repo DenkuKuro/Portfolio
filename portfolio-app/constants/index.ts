@@ -1,4 +1,5 @@
-import { blog, SpikeConnect,
+import { SpikeConnect,
+    sfuCourseCompass,
     python,
     javascript,
     cpp,
@@ -13,6 +14,7 @@ import { blog, SpikeConnect,
     express,
     easyChart,
     docker,
+    ganpi,
  } from "../public";
 import type { ContactLink, Experience, Profile, Project, Section, SkillSchool } from "./types";
 
@@ -27,6 +29,12 @@ export const sections: Section[] = [
         description: "Who I am, where I come from and what I am working towards.",
     },
     {
+        id: "experience",
+        title: "Experience",
+        heading: "Experience",
+        description: "Where I have worked and what I shipped there.",
+    },
+    {
         id: "skills",
         title: "Skills",
         heading: "Skills",
@@ -37,12 +45,6 @@ export const sections: Section[] = [
         title: "Projects",
         heading: "Projects",
         description: "Things I have built, from full-stack web apps to systems programming.",
-    },
-    {
-        id: "experience",
-        title: "Experience",
-        heading: "Experience",
-        description: "Where I have worked and what I shipped there.",
     },
     {
         id: "contact",
@@ -94,7 +96,7 @@ export const contactLinks: ContactLink[] = [
     {
         kind: "location",
         label: "Location",
-        value: "Vancouver, BC",
+        value: "Burnaby, BC",
     },
 ];
 
@@ -109,46 +111,43 @@ export const contactCopy = {
 export const projects: Project[] = [
     {
         slug: "sfu-course-compass",
-        short: "Course Compass",
-        title: "SFU Course Compass",
+        name: "SFU Course Compass",
         type: "Full-Stack web app",
         status: "Completed",
         description: "SFU Course review website to help students understand courses they are interested in taking and help them make decisions about their course plan.",
-        link: "https://github.com/DenkuKuro/SFU-Course-Compass",
-        image: blog,
         tech: ["React", "Spring Boot", "AWS EC2", "AWS RDS (PostgreSQL)", "Docker"],
+        image: { src: sfuCourseCompass, alt: "Course Compass home page with a course search bar under the SFU banner" },
+        links: { source: "https://github.com/DenkuKuro/SFU-Course-Compass" },
     },
     {
         slug: "ganpi",
-        short: "GANPI",
-        title: "GANPI",
+        name: "GANPI",
         type: "Systems programming",
         status: "Completed",
         description: "GANPI is a revolutionary CLI tool that converts natural language commands into precise shell commands using Google's Gemini AI. Hackathon Winner",
-        link: "https://github.com/chdrPE/GANPI",
         tech: ["C++", "Google Gemini API", "System Programming"],
+        image : { src: ganpi, alt: "Ganpi landing page"},
+        links: { source: "https://github.com/chdrPE/GANPI" },
     },
     {
         slug: "spikeconnect",
-        short: "SpikeConnect",
-        title: "SpikeConnect",
+        name: "SpikeConnect",
         type: "Mobile app",
         status: "Completed",
-        description: "Volleyball social media app that connects volleybal enthusiasts around vancouver. Hackathon Winner",
-        link: "https://github.com/rsg28/Spike-Connect",
-        image: SpikeConnect,
+        description: "Volleyball social media app that connects volleyball enthusiasts around Vancouver. Hackathon Winner",
         tech: ["JavaScript", "React Native", "Python", "HTML/CSS", "Selenium", "Beautiful Soup"],
+        image: { src: SpikeConnect, alt: "SpikeConnect home screen with a community feed of player posts and featured volleyball events" },
+        links: { source: "https://github.com/rsg28/Spike-Connect" },
     },
     {
         slug: "easychart",
-        short: "EasyChart",
-        title: "EasyChart",
+        name: "EasyChart",
         type: "Full-stack web app",
         status: "Completed",
-        description: "EasyChart is a website that provides a simple way for users to visualize data, without having to learn complex tools.]",
-        link: "https://github.com/CMPT-276-SUMMER-2025/final-project-5-lakes",
-        image: easyChart,
+        description: "EasyChart is a website that provides a simple way for users to visualize data, without having to learn complex tools.",
         tech: ["React", "JavaScript", "Tailwind CSS", "Node.js", "Express.js", "DeepSeek API"],
+        image: { src: easyChart, alt: "EasyChart upload step with a file drop zone beside a box for pasting data" },
+        links: { source: "https://github.com/CMPT-276-SUMMER-2025/final-project-5-lakes" },
     },
 ];
 
@@ -156,17 +155,17 @@ export const skills: SkillSchool[] = [
     {
         id: "frontend",
         title: "Front-End",
-        skills: ["TypeScript", "JavaScript", "React", "Next.js", "Tailwind CSS"],
+        skills: ["TypeScript", "JavaScript", "React", "Next.js", "Tailwind CSS", "Shadcn UI", "Vercel"],
     },
     {
         id: "backend",
         title: "Back-End",
-        skills: ["Node.js", "Express JS", "NestJS", "Python", "C/C++", "PostgreSQL", "Prisma ORM"],
+        skills: ["Node.js", "Express JS", "NestJS", "Python", "C/C++", "PostgreSQL", "Prisma ORM (SQL)"],
     },
     {
         id: "devtools",
         title: "Dev Tools",
-        skills: ["GitHub", "Git", "Docker", "AWS", "Claude Code", "GitHub Copilot"],
+        skills: ["GitHub", "Git", "Docker", "AWS", "Claude Code", "GitHub Copilot", "Render"],
     },
 ];
 
